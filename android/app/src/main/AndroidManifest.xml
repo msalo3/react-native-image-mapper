@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.imagemapper">
+  package="com.react-native-image-mapper">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

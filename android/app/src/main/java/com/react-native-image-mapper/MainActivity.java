@@ -1,4 +1,4 @@
-package com.imagemapper;
+package com.react-native-image-mapper;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "ImageMapper";
+        return "react-native-image-mapper";
     }
 }

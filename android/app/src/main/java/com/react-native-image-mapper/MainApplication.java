@@ -1,4 +1,4 @@
-package com.imagemapper;
+package com.react-native-image-mapper;
 
 import android.app.Application;
 

@@ -102,7 +102,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.imagemapper"
+        applicationId "com.react-native-image-mapper"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
