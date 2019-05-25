@@ -2,45 +2,6 @@
 
 React Native component to allow clickable areas on an image. Includes ability to highlight areas on click as well.
 
-
-## Demo & Examples
-
-Live demo: [coldiary.github.io/react-image-mapper](http://coldiary.github.io/react-image-mapper/)
-
-To build the example locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
-## Installation
-
-The easiest way to use react-image-mapper is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
-
-You can also use the standalone build by including `dist/react-image-mapper.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
-
-```
-npm install react-image-mapper --save
-```
-
-
-## Usage
-
-Import the component as you normally do, and add it wherever you like in your JSX views as below:
-
-```javascript
-// ES5 require
-var ImageMapper = require('react-image-mapper');
-
-// ES6 import
-import ImageMapper from 'react-image-mapper';
-
-<ImageMapper src={IMAGE_URL} map={AREAS_MAP}/>
-```
-
 ### Properties
 
 |Props|type|Description|default|
@@ -54,7 +15,7 @@ import ImageMapper from 'react-image-mapper';
 
 |Props callbacks|Called on|signature|
 |---|---|---|
-|**onPress**|Click on a zone in image|`(area: obj, index: num, event): void`|
+|**onPress**|Click on an area in image|`(item: obj, index: num, event)`|
 
 **`imgMap` is an object describing touchable areas in the image.**
 
@@ -73,17 +34,25 @@ import ImageMapper from 'react-image-mapper';
 |**height**|*number*|**Required for Rectangle unless `y2` (above) is specified** - Height of rectangle|
 |**radius**|*number*|**Required for Circle** - Radius of circle|
 
-### Notes & Contributions
+### License
+MIT License
 
-This a component is still a work in progress.
+Copyright (c) 2019 Marc Salo
 
-If you encounter a bug of some kind, feel free to report the issue.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-If you'd like to improve this code or ask/advise for any improvement, feel free to comment it as well.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-
-## License
-
-Distributed with an MIT License. See LICENSE.txt for more details
-
-Copyright (c) 2017 Coldiary.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
