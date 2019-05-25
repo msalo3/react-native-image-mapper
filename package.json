@@ -1,7 +1,7 @@
 {
   "name": "react-native-image-mapper",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.1.0",
+  "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -20,5 +20,14 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "description": "React Native component to allow clickable areas on an image. Includes ability to highlight areas on click as well.",
+  "main": "index.js",
+  "repository": "git+https://github.com/msalo3/react-native-image-mapper.git",
+  "author": "Marc Salo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msalo3/react-native-image-mapper/issues"
+  },
+  "homepage": "https://github.com/msalo3/react-native-image-mapper#readme"
 }
