@@ -9,15 +9,33 @@ class Example1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedAreaId: null
+      selectedAreaId: []
     };
   }
 
   mainImgWasPressed(item, idx, event) {
-    if (item.id === this.state.selectedAreaId) {
-      this.setState({ selectedAreaId: null });
+    console.log('Main');
+    const { selectedAreaId } = this.state;
+    if (Array.isArray(selectedAreaId)) {
+      const indexInState = selectedAreaId.indexOf(item.id);
+      if (indexInState !== -1) {
+        console.log('Removing id', item.id)
+        this.setState({
+          selectedAreaId: [
+            ...selectedAreaId.slice(0, indexInState),
+            ...selectedAreaId.slice(indexInState + 1)
+          ]
+        });
+      } else {
+        console.log('Setting Id', item.id)
+        this.setState({ selectedAreaId: [...selectedAreaId, item.id] });
+      }
     } else {
-      this.setState({ selectedAreaId: item.id });
+      if (item.id === selectedAreaId) {
+        this.setState({ selectedAreaId: null });
+      } else {
+        this.setState({ selectedAreaId: item.id });
+      }
     }
   }
 
@@ -32,6 +50,7 @@ class Example1 extends Component {
           onPress={(item, idx, event) => this.mainImgWasPressed(item, idx, event)}
           containerStyle={{ top: 10 }}
           selectedAreaId={this.state.selectedAreaId}
+          multiselect
         />
       </View>
     );

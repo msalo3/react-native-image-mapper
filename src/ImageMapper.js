@@ -8,16 +8,26 @@ import {
 class ImageMapper extends Component {
   buildStyle(item, index) {
     const { x1, y1, x2, y2, width, height, shape, fill, prefill, id, radius } = item;
+    const { selectedAreaId, multiselect } = this.props;
+    let areaId = selectedAreaId;
+    if (multiselect && (selectedAreaId === null || selectedAreaId === undefined)) {
+      areaId = [];
+    }
     const style = {
       width: 0,
       height: 0,
       left: x1,
       top: y1
     };
-    if (id === this.props.selectedAreaId && (fill !== null || fill !== undefined)) {
-      style.backgroundColor = fill;
-    } else if ((id !== this.props.selectedAreaId && (prefill !== null || prefill !== undefined))) {
-      style.backgroundColor = prefill;
+    if (prefill !== null && prefill !== undefined) {
+      if ((multiselect && !areaId.includes(id)) || id !== areaId) {
+        style.backgroundColor = prefill;
+      }
+    }
+    if (fill !== null && fill !== undefined){
+      if ((multiselect && areaId.includes(id)) || id === areaId) {
+        style.backgroundColor = fill;
+      }
     }
     if (shape === 'rectangle') {
       style.width = (width === null || width === undefined) ? x2 - x1 : width;
@@ -28,7 +38,6 @@ class ImageMapper extends Component {
       style.height = radius;
       style.borderRadius = radius / 2;
     }
-
     return style;
   }
 
@@ -61,5 +70,9 @@ class ImageMapper extends Component {
     );
   }
 }
+
+ImageMapper.defaultProps = {
+  multiselect: false
+};
 
 export default ImageMapper;
