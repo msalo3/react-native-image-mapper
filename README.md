@@ -1,24 +1,62 @@
 # react-native-image-mapper
 
-React Native component to allow clickable areas on an image. Includes ability to highlight areas on click as well.
+React Native component to allow clickable areas on an image
+
+### Setup
+```
+$ yarn add react-native-image-mapper --save
+```
+
+### Usage
+
+Import the `ImageMapper` component from `react-native-image-mapper` and use it as seen below:
+
+```jsx
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Image Mapper } from 'react-native-image-mapper';
+
+const imageSource = require('./path/to/my/image.jpg');
+
+class MyReactNativeComponent extends Component {
+  // ....
+  render() {
+    return (
+      <ImageMapper
+        imgHeight={500}
+        imgWidth={250}
+        imgSource={imageSource}
+        imgMap={MAPPING}
+        onPress={(item, idx, event) => this.onAnyAreaPress(item, idx, event)}
+        containerStyle={styles.myCustomStyle}
+        selectedAreaId="my_area_id"
+      />
+    );
+  }
+}
+```
 
 ### Properties
 
-|Props|type|Description|default|
+|Prop Name|Type|Description|Example|
 |---|---|---|---|
 |**imgSource**|*string*|Image source url| **required**|
-|**imgMap**|*array*|Mapping for image| `see below` |
-|**selectedAreaId**|*string*|ID of the currently selected area| `areaOne`|
+|**imgMap**|*array*|Mapping for image| See below |
+|**selectedAreaId**|*string* or *array*|ID of the currently selected area or array of ids| `'areaOne'` or `['areaOne', 'areaTwo']`|
 |**imgWidth**|*number*|Image width|`Displayed width`|
 |**imgHeight**|*number*|Image height|`Displayed height`|
+|**multiselect**|*boolean*| Defaults to `false`. Allows for tracking of multiple selections.|`true` or `false`|
 
-|Props callbacks|Called on|signature|
+**When `multiselect` is set to `true`, `selectedAreaId` must be an array of ids rather than a string**
+
+|Props callbacks|Called on|Signature|
 |---|---|---|
-|**onPress**|Click on an area in image|`(item: obj, index: num, event)`|
+|**onPress**|Click on an area in image|`(item: object, index: number, event: object)`|
+
 
 **`imgMap` is an object describing touchable areas in the image.**
 
-|Property| type|Description|
+|Property|Type|Description|
 |---|:---:|---|
 |**id**|*string*|ID of the item used for selected or not selected|
 |**name**|*string*|Name of the item|
@@ -33,8 +71,10 @@ React Native component to allow clickable areas on an image. Includes ability to
 |**height**|*number*|**Required for Rectangle unless `y2` (above) is specified** - Height of rectangle|
 |**radius**|*number*|**Required for Circle** - Radius of circle|
 
-### License
-MIT License
+### Thanks
+Big thanks to [Coldiary](https://github.com/coldiary) and his [React project](https://github.com/coldiary)
 
+### License
 Copyright (c) 2019 Marc Salo
-See `./LICENSE.txt` for specifics
+MIT License
+See LICENSE for specifics
